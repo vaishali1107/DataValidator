@@ -1,0 +1,16 @@
+create database excelDB;
+
+CREATE TABLE `excelDB`.`city_Table`
+ ( `city_Id` INT(5) NOT NULL AUTO_INCREMENT , `city_Name` VARCHAR(100) NOT NULL , PRIMARY KEY (`city_Id`)) ;
+
+INSERT INTO `city_table`(`city_Id`, `city_Name`) VALUES (1,'Pune'),(2,'Nagpur'),(3,'Bangalore'),(4,'Goa'),(5,'Hyderabad');
+
+INSERT INTO wardList(wardId, wardName) VALUES (1, 'Aundh - Baner'), (2, 'Bhawani Peth'), (3, 'Bibwewadi'), (4, 'Dhankawadi - Sahakarnagar'), (5, 'Dhole Patil Road'), (6, 'Hadapsar - Mundhwa'), (7, 'Kasba - Vishrambaugwada'), (8, 'Kondhwa - Yewalewadi'), (9, 'Kothrud - Bawdhan'), (10, 'Nagar Road - Vadgaonsheri'), (11, 'Shivajinagar - Gholeroad'), (12, 'Sinhgad Road'), (13, 'Wanawadi - Ramtekadi'), (14, 'Warje - Karvenagar'), (15, 'Yerawada - Kalas - Dhanori'), (16, 'Incorrect/Incomplete Address'), (17, 'Address Not Available'), (18, 'Out of PMC');                                                 
+
+INSERT INTO testingLabs(labId, testingLab) VALUES (1, 'AG Diagnostics'), (2, 'BJ GMC'), (3, 'Genapath'), (4, 'JYOT'), (5, 'Metropolis'), (6, 'NIV Pune'), (7, 'Outside Lab'), (8, 'Private Lab'), (9, 'Religare Lab'), (10, 'Sahyadri Lab'), (11, 'Sasoon'), (12, 'SRL'), (13, 'Suburban Diagnostics'), (14, 'ThyroCare');
+
+INSERT INTO sampleResult(sResultId, sResult) VALUES (1, 'Positive'), (2, 'Negative'), (3, 'Awaiting');
+
+INSERT INTO hospitalizationStatus(hospStatusId, hospStatus) VALUES (1, 'Admitted'), (2, 'Discharge'), (3, 'Death');
+
+INSERT INTO status(statusId, status) VALUES (1, 'Stable'), (2, 'Critical'), (3, 'On Ventilator'), (4, 'Death');

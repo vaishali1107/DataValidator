@@ -1,0 +1,40 @@
+package com.psl.lhcs.covid.constants;
+
+public class ValidationConstants {
+	public static final String Srno = "Srno";
+	public static final String District = "District";
+	public static final String Name = "Name";
+	public static final String Age = "Age";
+	public static final String Gender = "Gender";
+	public static final String Address = "Address";
+	public static final String Phnno = "Phnno";
+	public static final String Traceable = "Traceable";
+	public static final String Country = "Country";
+	public static final String DateOfLeaving = "DateOfLeaving";
+	public static final String DateOfArriving = "DateOfArriving";
+	public static final String SourceOfInfo = "SourceOfInfo";
+	public static final String ReceiptDate = "ReceiptDate";
+	public static final String ObservationDate = "ObservationDate";
+	public static final String CurrentStatus = "CurrentStatus";
+	public static final String HospitalizedStatus = "HospitalizedStatus";
+	public static final String HospitalName = "HospitalName";
+	public static final String SampleStatus = "SampleStatus";
+	public static final String SampleCollectionDate = "SampleCollectionDate";
+	public static final String Status1 = "Status1";
+	public static final String LabStatus = "LabStatus";
+	public static final String MigrationStatus = "MigrationStatus";
+	public static final String IfMigrated = "IfMigrated";
+	public static final String OtherState = "OtherState";
+	public static final String Remark1 = "Remark1";
+	public static final String FirstSampleCollectionDate = "FirstSampleCollectionDate";
+	public static final String FirstSampleResultDate = "FirstSampleResultDate";
+	public static final String Status2 = "Status2";
+	public static final String NIVNumber1 = "NIVNumber1";
+	public static final String SecondSampleCollectionDate = "SecondSampleCollectionDate";
+	public static final String SecondSampleResultDate = "SecondSampleResultDate";
+	public static final String Status3 = "Status3";
+	public static final String NIVNumber2 = "NIVNumber2";
+	public static final String Remark2 = "Remark2";
+	public static final String Zone = "Zone";
+	public static final String Ward = "Ward";
+}

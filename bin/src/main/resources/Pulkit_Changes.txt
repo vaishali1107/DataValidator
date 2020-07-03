@@ -1,0 +1,24 @@
+
+new :
+	status.java
+	HospitalizationStatus.java
+	wardList.java
+	SampleResult.java
+	TestingLabs.java
+	
+modified : 
+	
+	
+	
+INSERT INTO ward_list(ward_name) VALUES ('Aundh - Baner'), ('Bhawani Peth'), ('Bibwewadi'), ('Dhankawadi - Sahakarnagar'), ('Dhole Patil Road'), ('Hadapsar - Mundhwa'), ('Kasba - Vishrambaugwada'), ('Kondhwa - Yewalewadi'), ('Kothrud - Bawdhan'), ('Nagar Road - Vadgaonsheri'), ('Shivajinagar - Gholeroad'), ('Sinhgad Road'), ('Wanawadi - Ramtekadi'), ('Warje - Karvenagar'), ('Yerawada - Kalas - Dhanori'), ('Incorrect/Incomplete Address'), ('Address Not Available'), ('Out of PMC');                                                 
+	
+INSERT INTO testing_labs(testing_lab) VALUES ('AG Diagnostics'), ('BJ GMC'), ('Genapath'), ('JYOT'), ('Metropolis'), ('NIV Pune'), ('Outside Lab'), ('Private Lab'), ('Religare Lab'), ('Sahyadri Lab'), ('Sasoon'), ('SRL'), ('Suburban Diagnostics'), ('ThyroCare');
+	
+INSERT INTO sample_result(s_result) VALUES ('Positive'), ('Negative'), ('Awaiting');
+	
+INSERT INTO hospitalization_status(hosp_status) VALUES ('Admitted'), ('Discharge'), ('Death');
+	
+INSERT INTO status(status) VALUES ('Stable'), ('Critical'), ('On Ventilator'), ('Death');
+
+ALTER TABLE public.testing_labs ALTER COLUMN lab_id ADD GENERATED ALWAYS AS IDENTITY
+
