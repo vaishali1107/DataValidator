@@ -5,7 +5,6 @@ package com.psl.lhcs.covid.service.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -13,9 +12,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
- 
-
-import com.psl.lhcs.covid.model.validate.ValidationClass;
 import com.psl.lhcs.covid.constants.ApplicationConstants;
 import com.psl.lhcs.covid.model.login.User;
 import com.psl.lhcs.covid.repo.user.UserRepo;
@@ -25,12 +21,7 @@ import com.psl.lhcs.covid.repo.user.UserRepo;
 @Service
 public class UserValidator implements Validator {
 
- 
 
-    @Autowired
-    ValidationClass validate;
-//    @Autowired
-//    UserService userService;
     @Autowired
     UserRepo userRepo;
     
@@ -73,24 +64,24 @@ public class UserValidator implements Validator {
     
     public String getErrorMessage(BindingResult errors) {
         
-        String errorMsg="";
-        for (Object object : errors.getAllErrors()) {
+        StringBuilder errorMsg=new StringBuilder();
+        for (ObjectError object : errors.getAllErrors()) {
             if(object instanceof FieldError) {
                 FieldError fieldError = (FieldError) object;
-                errorMsg+=fieldError.getCode()+" ; ";
+                errorMsg.append(fieldError.getCode()).append(" ; ");
             }
             
             else if(object instanceof ObjectError) {
-                ObjectError objectError = (ObjectError) object;
+                ObjectError objectError =  object;
 
  
 
-                errorMsg+=objectError.getCode()+" ; ";
+                errorMsg.append(objectError.getCode()).append(" ; ");
             }
         }
         
         
-        return errorMsg;
+        return errorMsg.toString();
         
     }
     

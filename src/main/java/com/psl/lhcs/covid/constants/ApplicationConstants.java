@@ -2,6 +2,8 @@ package com.psl.lhcs.covid.constants;
 
 public class ApplicationConstants {
 
+	private ApplicationConstants()
+	{}
 	public static final String  ADMIN="admin";
 	public static final String HOSPITAL="hospital";
 	public static final String LAB="lab";

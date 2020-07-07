@@ -1,8 +1,6 @@
 package com.psl.lhcs.covid.service.user;
 import java.util.Optional;
 
- 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -11,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-
- 
 
 import com.psl.lhcs.covid.constants.ApplicationConstants;
 import com.psl.lhcs.covid.model.login.User;
@@ -94,34 +90,29 @@ public class UserService {
 
  
 
-        if(userExist!=null)
-            return true;
+       return (userExist!=null);
 
- 
-
-        return false;
     }
 
  
 
-    public Response<?> register(User userDetail, BindingResult errors){
+    public Response<String> register(User userDetail, BindingResult errors){
         validate(userDetail, errors);
         if (errors.hasErrors()) {
 
  
 
-            Response<?> response = new Response<>();
+            Response<String> response = new Response<>();
             response.setMessage(getErrorMessage(errors));
             response.setCode(406);
             response.setStatus(HttpStatus.NOT_ACCEPTABLE);
             return response;
         }
         userDetail.setPassword(passwordEncoder.encode(userDetail.getPassword()));
+
         userRepo.save(userDetail);
 
- 
-
-        Response<?> response = new Response<>();
+        Response<String> response = new Response<>();
         response.setMessage(registrationSuccess);
         response.setCode(200);
         response.setStatus(HttpStatus.OK);
@@ -132,9 +123,9 @@ public class UserService {
 
  
 
-    public Response<?> isUserValid(String email,String password)
+    public Response<String> isUserValid(String email,String password)
     {
-        Response<?> response = new Response<>();
+        Response<String> response = new Response<>();
         User userValid = userRepo.findByEmail(email);
         if((userValid!=null && passwordEncoder.matches(password, userValid.getPassword()))) {
             response.setMessage(loginSuccess);
@@ -153,9 +144,9 @@ public class UserService {
 
  
 
-    public Response<?> resetPassword(String email,String oldPassword,String newPassword) {
+    public Response<String> resetPassword(String email,String oldPassword,String newPassword) {
         Optional<User> optional = Optional.ofNullable(userRepo.findByEmail(email));
-        Response<?> response = new Response<>();
+        Response<String> response = new Response<>();
         if (!optional.isPresent()) {
             response.setMessage(invalidEmail);
             response.setCode(401);
@@ -196,11 +187,11 @@ public class UserService {
 
  
 
-    public Response<?> forgetPassword(String email,String newPassword,String contact)
+    public Response<String> forgetPassword(String email,String newPassword,String contact)
     {
         Optional<User> emailOptional = Optional.ofNullable(userRepo.findByEmail(email));
         Optional<User> contactOptional = Optional.ofNullable(userRepo.findByContact(contact));
-        Response<?> response = new Response<>();
+        Response<String> response = new Response<>();
         if (!emailOptional.isPresent()) {
             response.setMessage(invalidEmail);
             response.setCode(401);
@@ -247,7 +238,6 @@ public class UserService {
  
 
             errors.reject(accessLevelConflict);
-            System.out.println(errors);
         }
         userValidator.validate(obj,errors);
     }
